@@ -26,13 +26,13 @@ export default function() {
         <div style={{ flex: 1 }} />
         <div style={{ flex: 1 }}>
           <div>
-            <button className="btn-green" onClick={() => onCourse()}>コース詳細</button>
-          </div>
-          <div style={{ marginTop: 10 }}>
             <button className="btn-green" onClick={() => onRegister()}>新規ユーザー登録</button>
           </div>
           <div style={{ marginTop: 10 }}>
             <button className="btn-green" onClick={() => onLogin()}>ログイン</button>
+          </div>
+          <div style={{ marginTop: 10 }}>
+            <button className="btn-green" onClick={() => onCourse()}>コース詳細</button>
           </div>
         </div>
       </div>

@@ -15,11 +15,11 @@ export default function() {
     history.push(`/search/rank`);
   }
   const data = [
-    { date: '2020/02/29 12:31', category: '和食', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, qStar: 2, pscStar: 3, confirmed: false },
-    { date: '2020/02/25 11:45', category: '洋食', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, qStar: 2, pscStar: 3, confirmed: false },
-    { date: '2020/02/20 16:11', category: '中華', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, qStar: 2, pscStar: 3, confirmed: false },
-    { date: '2020/01/31 18:05', category: '和食', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, qStar: 2, pscStar: 3, confirmed: true },
-    { date: '2020/01/14 11:01', category: '洋食', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, qStar: 2, pscStar: 3, confirmed: true },
+    { date: '2020/02/29 12:31', category: '和食', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, mqScore: 2, pscScore: 3, confirmed: false },
+    { date: '2020/02/25 11:45', category: '洋食', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, mqScore: 2, pscScore: 3, confirmed: false },
+    { date: '2020/02/20 16:11', category: '中華', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, mqScore: 2, pscScore: 3, confirmed: false },
+    { date: '2020/01/31 18:05', category: '和食', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, mqScore: 2, pscScore: 3, confirmed: true },
+    { date: '2020/01/14 11:01', category: '洋食', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, mqScore: 2, pscScore: 3, confirmed: true },
   ]
   return (
     <div style={{ textAlign: 'center' }}>
@@ -32,7 +32,7 @@ export default function() {
           チェシクを入れた調査一覧 / 詳細
         </span>
       </div>
-      <div className={cn('search-result-title', 'fs-15')}>
+      <div className={cn('search-result-title', 'fs-13')}>
         <div style={{ display: 'flex' }}>
           <div style={{ flex: 4 }}>調査日時(降順)</div>
           <div style={{ flex: 2 }}>カテゴリー</div>
@@ -53,9 +53,9 @@ export default function() {
               </div>
             </div>
             <div className='mt-1'>
-              <span>全 {item.totalScore}点 順 {item.rank}/{item.allRank}</span>
-              <span className='ml-1'>Q{'★'.repeat(item.qStar)}</span>
-              <span className='ml-1'>PSC{'★'.repeat(item.pscStar)}</span>
+              <span>総合 {item.totalScore}点 順 {item.rank}/{item.allRank}</span>
+              <span className='ml-1'>MQ {item.mqScore}点</span>
+              <span className='ml-1'>PSC {item.pscScore}点</span>
               <span className={cn({'span-confirm': item.confirmed}, {'span-nonconfirm': !item.confirmed})}>
                 {item.confirmed ? '確定済' : '未確定'}
                 </span>
@@ -63,6 +63,9 @@ export default function() {
           </div>
         ))}
         </div>
+      </div>
+      <div style={{ position: 'absolute', bottom: '6em', right: '2em' }}>
+        <button className="btn-green" onClick={() => history.replace('/login')}>ログアウト</button>
       </div>
     </div>
   )

@@ -32,15 +32,19 @@ export default function() {
         </div>
         <div className={cn('form-group', 'mb-1')}>
           <label className="form-label">ユーザー名</label>
-          <input type="text"/> 
+          <input type="text"/>
         </div>
         <div className={cn('form-group', 'mb-1')}>
           <label className="form-label">生年月日</label>
+          <input type="text" placeholder="yyyy-mm-dd"/> 
+        </div>
+        <div className={cn('form-group')}>
+          <label className="form-label">パスワード</label>
           <input type="text"/> 
         </div>
         <div className={cn('form-group', 'mb-1')}>
-          <label className="form-label">パスワード</label>
-          <input type="text"/> 
+          <label className="form-label" style={{ color: 'transparent' }}>パスワード</label>
+          <p>半角英数字 記号8〜12文字 <br/> ※英大小文字、数字各1文字以上必須</p>
         </div>
         <div className={cn('email-form-title', 'fs-20', 'mb-1')}>
           質問と答え

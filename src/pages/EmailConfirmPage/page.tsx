@@ -10,7 +10,7 @@ export default function() {
       <div style={{ textAlign: 'center' }}>
         <div style={{ marginBottom: 10 }}>
           <label style={{ marginRight: 20 }}>メールアドレス</label>
-          <input type="text"/> <br/>
+          <input type="text" placeholder="example@email.com"/> <br/>
         </div>
         <button className="btn-green">メール送信</button>
       </div>

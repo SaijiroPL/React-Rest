@@ -1,8 +1,10 @@
 import React from 'react'
 import asset from 'const/asset';
+import { useHistory } from "react-router-dom"
 import cn from 'classnames';
 
 export default function() {
+  const history = useHistory();
   const data = [
     { name: "木村太郎", email: "mailaddress@sample.co.jp", permission: 1 },
     { name: "木村太郎", email: "mailaddress@sample.co.jp", permission: 1 },
@@ -28,20 +30,28 @@ export default function() {
         <div className={cn('email-form-title', 'fs-20', 'mb-1')}>
           ユーザー一覧
         </div>
-        {data.map(item => 
-          <>
-            <div className={cn('form-group', 'mb-1')}>
-              <label className="mr-2"><input type="checkbox"/>{item.name}</label>
-              <label>{item.email}</label>
-            </div>
-            <div className={cn('form-group', 'mb-1')}>
-              <label className="mr-2"><input type="radio" checked={item.permission === 0}/>閲覧</label>
-              <label className="mr-2"><input type="radio" checked={item.permission === 1}/>編集</label>
-              <label className="mr-2"><input type="radio" checked={item.permission === 2}/>確定</label>
-              <label className="mr-2"><input type="radio" checked={item.permission === 3}/>管理</label>
-            </div>
-          </>
-        )}
+        <div style={{ maxHeight: '50vh', overflowY: 'auto' }}>
+          {data.map(item => 
+            <>
+              <div className={cn('form-group', 'mb-1')}>
+                <label className="mr-2"><input type="checkbox"/>{item.name}</label>
+                <label>{item.email}</label>
+              </div>
+              <div className={cn('form-group', 'mb-1')} style={{ justifyContent: 'center' }}>
+                <label className="mr-2"><input type="radio" checked={item.permission === 0}/>閲覧</label>
+                <label className="mr-2"><input type="radio" checked={item.permission === 1}/>編集</label>
+                <label className="mr-2"><input type="radio" checked={item.permission === 2}/>確定</label>
+                <label className="mr-2"><input type="radio" checked={item.permission === 3}/>管理</label>
+              </div>
+            </>
+          )}
+        </div>
+        <div style={{ textAlign: 'left', width: '100%' }}>
+          <button className="btn-green" style={{ width: 'auto' }}>ユーザーの削除</button>
+          <button className="btn-green" style={{ width: 'auto', float: 'right' }}>確定</button>
+          <br/><br/>
+          <button className="btn-green" style={{ width: 'auto' }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
+        </div>
       </div>
     </div>
   )
