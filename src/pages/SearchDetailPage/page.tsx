@@ -18,11 +18,11 @@ export default function() {
     { title: 'チキンカしー', price: 1000 },
   ];
   const detailedScore = [
-    { title: 'メニュー構成', score: 90, itemCount: 7, circle: 6, triangle: 1, cross: 0 },
-    { title: '料理クオリティ', score: 84, itemCount: 68, circle: 46, triangle: 21, cross: 1 },
-    { title: 'プレゼンテーション', score: 98, itemCount: '', circle: '', triangle: '', cross: '' },
-    { title: 'サービス', score: 96, itemCount: '', circle: '', triangle: '', cross: '' },
-    { title: 'クリンリネス', score: 90, itemCount: '', circle: '', triangle: '', cross: '' },
+    { title: 'M : メニュー構成', score: 90, itemCount: 7, circle: 6, triangle: 1, cross: 0 },
+    { title: 'Q : 料理クオリティ', score: 84, itemCount: 68, circle: 46, triangle: 21, cross: 1 },
+    { title: 'P : プレゼンテーション', score: 98, itemCount: '', circle: '', triangle: '', cross: '' },
+    { title: 'S : サービス', score: 96, itemCount: '', circle: '', triangle: '', cross: '' },
+    { title: 'C : クリンリネス', score: 90, itemCount: '', circle: '', triangle: '', cross: '' },
   ];
   const mQuestion = [
     { question: '業態・店舗コンセプトに適したメニュー構成か', comment: '○ 適している' },
@@ -51,6 +51,43 @@ export default function() {
         },
         {
           title: '鴨汁そば',
+          q: [
+            { question: 'つけ汁のクオリティ・状態が良いか', comment: '○ 適している' },
+            { question: '具材の量的バランスが良いか', comment: '○ 適している' },
+            { question: '麺の茹で加減が丁度良いか', comment: '○ 適している' }
+          ],
+        },
+      ]
+    },
+    { 
+      title: '麺類 (セット)', price: 1600,
+      categories: [
+        {
+          title: '親子丼',
+          q: [
+            { question: '麺の茹で加減が丁度良いか', comment: '○ 適している' },
+            { question: '麺の〆加減が丁度良いか', comment: '○ 適している' },
+            { question: '水切りができているか', comment: '○ 適している' }
+          ],
+        },
+        {
+          title: '天丼',
+          q: [
+            { question: '麺の茹で加減が丁度良いか', comment: '○ 適している' },
+            { question: '麺のクオリティ・状態が良いか', comment: '○ 適している' },
+            { question: '具材のクオリティ・状態が良いか', comment: '○ 適している' }
+          ],
+        },
+        {
+          title: 'かつ丼',
+          q: [
+            { question: 'つけ汁のクオリティ・状態が良いか', comment: '○ 適している' },
+            { question: '具材の量的バランスが良いか', comment: '○ 適している' },
+            { question: '麺の茹で加減が丁度良いか', comment: '○ 適している' }
+          ],
+        },
+        {
+          title: '海鮮丼',
           q: [
             { question: 'つけ汁のクオリティ・状態が良いか', comment: '○ 適している' },
             { question: '具材の量的バランスが良いか', comment: '○ 適している' },
@@ -170,7 +207,7 @@ export default function() {
   return (
     <div style={{ margin: 10 }}>
       <div className="top-title">
-        <span>調査結果</span>
+        <span>調査結果詳細</span>
       </div>
       <table className={cn("table-summary")}>
         <tbody>
@@ -234,7 +271,7 @@ export default function() {
           <div style={{ marginLeft: 10, fontSize: 9.5 }}>
             <div>M : メニュー構成</div>
             <div style={{ marginLeft: 15 }}><span className="fs-20" style={{ fontWeight: 'bold' }}>96</span>点/100点</div>
-            <div>M : 料理クオリティ</div>
+            <div>Q : 料理クオリティ</div>
             <div style={{ marginLeft: 15 }}><span className="fs-20" style={{ fontWeight: 'bold' }}>84</span>点/100点</div>
           </div>
         </div>
@@ -332,7 +369,7 @@ export default function() {
         </tbody>
       </table>
       <div style={{ paddingLeft: 10 }} className="fs-12">
-        <span>■メニュー構成</span>
+        <span className="fs-15">◆メニュー構成◆</span>
         <div style={{ paddingLeft: 10 }}>
           {mQuestion.map((item, idx) => 
           <>
@@ -341,12 +378,14 @@ export default function() {
           </>
           )}
         </div>
-        <span>■料理</span>
+        <span className="fs-15">◆料理クオリティ◆</span>
         <div style={{ paddingLeft: 10 }}>
           {qQuestion.map((item, idx) => 
             <div key={idx}>
-              <span>{item.title}</span>
-              <span style={{ marginLeft: 30 }}>{item.price}円</span>
+              <span>料理{idx + 1}</span>
+              <span style={{ marginLeft: 30 }}>{item.title}</span>
+              <span style={{ marginLeft: 30 }}>{item.price.toLocaleString()}円</span>
+              <span style={{ marginLeft: 30 }}>(税込{Math.round(item.price * 1.1).toLocaleString()}円)</span>
               {item.categories.map((ic, icidx) => 
                 <div style={{ marginLeft: 10, display: 'flex' }}>
                   <span>{ic.title}</span>
@@ -364,7 +403,7 @@ export default function() {
           )}
         </div>
         
-        <span>■プレゼンテーション</span>
+        <span className="fs-15">◆プレゼンテーション◆</span>
         <div style={{ paddingLeft: 10 }}>
           {pQuestion.categories.map((item, idx) => 
             <div key={idx}>
@@ -379,7 +418,7 @@ export default function() {
           )}
         </div>
 
-        <span>■サービス</span>
+        <span className="fs-15">◆サービス◆</span>
         <div style={{ paddingLeft: 10 }}>
           {sQuestion.categories.map((item, idx) => 
             <div key={idx}>
@@ -394,7 +433,7 @@ export default function() {
           )}
         </div>
 
-        <span>■クリンリネス</span>
+        <span className="fs-15">◆クリンリネス◆</span>
         <div style={{ paddingLeft: 10 }}>
           {cQuestion.categories.map((item, idx) => 
             <div key={idx}>
