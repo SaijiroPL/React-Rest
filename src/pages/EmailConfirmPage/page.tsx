@@ -1,7 +1,9 @@
 import React from 'react'
 import asset from 'const/asset';
+import { useHistory } from "react-router-dom"
 
 export default function() {
+  const history = useHistory();
   return (
     <div>
       <div className="top-title">
@@ -13,6 +15,9 @@ export default function() {
           <input type="text" placeholder="example@email.com"/> <br/>
         </div>
         <button className="btn-green">メール送信</button>
+      </div>
+      <div style={{ position: 'absolute', bottom: '6em', right: '2em' }}>
+        <button className="btn-green" onClick={() => history.replace('/login')}>ログイン画面に戻る↩️</button>
       </div>
     </div>
   )

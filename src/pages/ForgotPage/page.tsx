@@ -18,11 +18,11 @@ export default function() {
           ご登録情報を入力してください。 <br/> IDを記載したメールお送りします。
         </div>
         <div className={cn('form-group', 'mb-1')}>
-          <label className="form-label">メールアドレス</label>
-          <input type="text"/> <br/>
+          <label className={cn("form-label", "fs-14")}>メールアドレス</label>
+          <input type="text" placeholder="example@email.com"/> <br/>
         </div>
         <div className={cn('form-group', 'mb-1')}>
-          <label className="form-label">生年月日</label>
+          <label className={cn("form-label", "fs-14")}>生年月日</label>
           <input type="text" placeholder="yyyy-mm-dd"/> <br/>
         </div>
         <button className="btn-green" style={{ float: 'right' }}>メール送信</button>
@@ -46,10 +46,11 @@ export default function() {
           <label className="form-label">答え</label>
           <input type="text"/> <br/>
         </div>
-        <button className="btn-green" style={{ float: 'right' }}>メール送信</button>
-      </div>
-      <div style={{ position: 'absolute', bottom: '6em', right: '2em' }}>
-        <button className="btn-green" onClick={() => history.goBack()}>ログイン画面に戻る↩️</button>
+        <div style={{ textAlign: 'right' }}>
+          <button className="btn-green">メール送信</button>
+          <br/><br/>
+          <button className="btn-green" onClick={() => history.goBack()}>ログイン画面に戻る↩️</button>
+        </div>
       </div>
     </div>
   )

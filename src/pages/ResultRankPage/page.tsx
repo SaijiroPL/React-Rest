@@ -15,7 +15,7 @@ export default function() {
   return (
     <div style={{ textAlign: 'center' }}>
       <div className={cn("search-title", 'mt-2', 'mr-2', 'mb-2')}>
-        <span className={cn('fs-25', 'fw-bold', 'mt-1')}>調査結果 点数･順位</span>
+        <span className={cn('fs-25', 'fw-bold', 'mt-1')}>調査結果 順位・点数</span>
       </div>
       {/* <div style={{ display: 'flex' }}>
         <span className={cn("ml-2", 'search-table-title')}>
@@ -29,7 +29,7 @@ export default function() {
           <div style={{ flex: 5 }}>店名</div>
         </div>
         <div style={{ display: 'flex' }}>
-          <div style={{ flex: 2 }}>総合</div>
+          <div style={{ flex: 3 }}>総合(点数・順位)</div>
           <div className='rank-mq' style={{ flex: 1 }}>MQ</div>
           <div className='rank-morq' style={{ flex: 1 }}>M</div>
           <div className='rank-morq' style={{ flex: 1 }}>Q</div>
@@ -37,7 +37,7 @@ export default function() {
           <div className='rank-sc' style={{ flex: 1 }}>P</div>
           <div className='rank-sc' style={{ flex: 1 }}>S</div>
           <div className='rank-sc' style={{ flex: 1 }}>C</div>
-          <div style={{ flex: 2 }}></div>
+          <div style={{ flex: 1.5 }}></div>
         </div>
         <div className='search-table-border'>
         {data.map((item, idx) => (
@@ -70,8 +70,8 @@ export default function() {
         ))}
         </div>
         <div className="mt-1" style={{ textAlign: 'left', width: '100%' }}>
-          <button className="btn-green" style={{ width: 'auto' }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
-          <button className="btn-green" style={{ width: 'auto', float: 'right' }} onClick={() => history.replace('/login')}>ログアウト</button>
+          <button className="btn-green" style={{ width: '120px' }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
+          <button className="btn-green" style={{ width: '120px', float: 'right' }} onClick={() => history.replace('/login')}>ログアウト</button>
         </div>
       </div>
     </div>

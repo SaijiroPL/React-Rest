@@ -358,7 +358,7 @@ export default function() {
         <tbody>
           {detailedScore.map((item, idx) => 
             <tr key={idx}>
-              <td>{item.title}</td>
+              <td style={{ textAlign: 'left', paddingLeft: 10, width: 150 }}>{item.title}</td>
               <td>{item.score}</td>
               <td>{item.itemCount}</td>
               <td>{item.circle}</td>
@@ -369,7 +369,7 @@ export default function() {
         </tbody>
       </table>
       <div style={{ paddingLeft: 10 }} className="fs-12">
-        <span className="fs-15">◆メニュー構成◆</span>
+        <span className="fs-15">◆メニュー構成</span>
         <div style={{ paddingLeft: 10 }}>
           {mQuestion.map((item, idx) => 
           <>
@@ -378,7 +378,7 @@ export default function() {
           </>
           )}
         </div>
-        <span className="fs-15">◆料理クオリティ◆</span>
+        <span className="fs-15">◆料理クオリティ</span>
         <div style={{ paddingLeft: 10 }}>
           {qQuestion.map((item, idx) => 
             <div key={idx}>
@@ -403,7 +403,7 @@ export default function() {
           )}
         </div>
         
-        <span className="fs-15">◆プレゼンテーション◆</span>
+        <span className="fs-15">◆プレゼンテーション</span>
         <div style={{ paddingLeft: 10 }}>
           {pQuestion.categories.map((item, idx) => 
             <div key={idx}>
@@ -418,7 +418,7 @@ export default function() {
           )}
         </div>
 
-        <span className="fs-15">◆サービス◆</span>
+        <span className="fs-15">◆サービス</span>
         <div style={{ paddingLeft: 10 }}>
           {sQuestion.categories.map((item, idx) => 
             <div key={idx}>
@@ -433,7 +433,7 @@ export default function() {
           )}
         </div>
 
-        <span className="fs-15">◆クリンリネス◆</span>
+        <span className="fs-15">◆クリンリネス</span>
         <div style={{ paddingLeft: 10 }}>
           {cQuestion.categories.map((item, idx) => 
             <div key={idx}>
@@ -463,11 +463,11 @@ export default function() {
         </div>
       </div>
       <div className={cn("mt-1", 'mb-1')} style={{ textAlign: 'left', width: '100%' }}>
-        <button className="btn-green" style={{ width: 'auto' }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
-        <button className="btn-green" style={{ width: 'auto', float: 'right' }} onClick={() => history.replace('/search/result')}>調査結果一覧</button>
+        <button className="btn-green" style={{ width: '120px' }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
+        <button className="btn-green" style={{ width: '120px', float: 'right' }} onClick={() => history.replace('/search/result')}>調査結果一覧</button>
       </div>
       <div className={cn("mt-1", 'mb-1')} style={{ textAlign: 'right', width: '100%' }}>
-        <button className="btn-green" style={{ width: 'auto' }} onClick={() => history.replace('/login')}>ログアウト</button>
+        <button className="btn-green" style={{ width: '120px' }} onClick={() => history.replace('/login')}>ログアウト</button>
       </div>
     </div>
   )

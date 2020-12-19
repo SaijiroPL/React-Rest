@@ -21,8 +21,8 @@ export default function() {
           招待メール送信
         </div>
         <div className={cn('form-group', 'mb-1')}>
-          <label className="form-label">メールアドレス</label>
-          <input type="text"/> <br/>
+          <label className={cn("form-label", "fs-14")}>メールアドレス</label>
+          <input type="text" placeholder="example@email.com"/> <br/>
         </div>
         <button className="btn-green" style={{ float: 'right' }}>メール送信</button>
       </div>
@@ -47,10 +47,10 @@ export default function() {
           )}
         </div>
         <div style={{ textAlign: 'left', width: '100%' }}>
-          <button className="btn-green" style={{ width: 'auto' }}>ユーザーの削除</button>
-          <button className="btn-green" style={{ width: 'auto', float: 'right' }}>確定</button>
-          <br/><br/>
-          <button className="btn-green" style={{ width: 'auto' }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
+          <button className="btn-green" style={{ width: '120px' }}>ユーザーの削除</button>
+          <button className="btn-green" style={{ width: '120px', float: 'right' }}>確定</button>
+          <br/>
+          <button className="btn-green" style={{ width: '120px', marginTop: 10 }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
         </div>
       </div>
     </div>
