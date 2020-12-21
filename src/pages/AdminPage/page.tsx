@@ -47,10 +47,10 @@ export default function() {
           )}
         </div>
         <div style={{ textAlign: 'left', width: '100%' }}>
-          <button className="btn-green" style={{ width: '120px' }}>ユーザーの削除</button>
-          <button className="btn-green" style={{ width: '120px', float: 'right' }}>確定</button>
+          <button className="btn-green" style={{ width: '125px' }}>ユーザーの削除</button>
+          <button className="btn-green" style={{ width: '125px', float: 'right' }}>確定</button>
           <br/>
-          <button className="btn-green" style={{ width: '120px', marginTop: 10 }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
+          <button className="btn-green" style={{ width: '125px', marginTop: 10 }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
         </div>
       </div>
     </div>

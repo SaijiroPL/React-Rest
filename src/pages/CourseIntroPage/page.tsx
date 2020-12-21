@@ -12,7 +12,7 @@ export default function() {
       <div style={{ position: 'absolute', bottom: '4em', right: '2em' }}>
         <button className="btn-green" onClick={() => history.push('/payment')}>アップグレード</button>
         <br/><br/>
-        <button className="btn-green">お問合せフォーム</button>
+        <button className="btn-green" onClick={() => history.push('/inquery')}>お問合せフォーム</button>
       </div>
     </div>
   )

@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import asset from 'const/asset';
 import { useHistory } from "react-router-dom"
 import cn from 'classnames';
+import queryString from 'query-string';
 
 export default function() {
   const history = useHistory();
+  const [backCaption, setBackCaption] = useState<string>('ログイン画面に戻る↩️');
+  React.useEffect(() => {
+    const key = queryString.parse(window.location.search).back?.toString();
+    if (key === 'payment') {
+      setBackCaption('⽀払処理画⾯に戻る↩️');
+    }
+  }, []);
   return (
     <div style={{ textAlign: 'center' }}>
       <div className="top-title">
@@ -49,7 +57,7 @@ export default function() {
         <div style={{ textAlign: 'right' }}>
           <button className="btn-green">メール送信</button>
           <br/><br/>
-          <button className="btn-green" onClick={() => history.goBack()}>ログイン画面に戻る↩️</button>
+            <button className="btn-green" onClick={() => history.goBack()}>{backCaption}</button>
         </div>
       </div>
     </div>

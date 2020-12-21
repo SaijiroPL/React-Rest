@@ -86,7 +86,7 @@ export default function() {
         ))}
         </div>
         <div className={cn("mt-1")} style={{ textAlign: 'right', width: '100%' }}>
-          <button className="btn-green" style={{ width: '120px' }} onClick={() => history.replace('/login')}>ログアウト</button>
+          <button className="btn-green" style={{ width: '125px' }} onClick={() => history.replace('/login')}>ログアウト</button>
         </div>
       </div>
     </div>

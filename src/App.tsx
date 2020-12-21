@@ -14,6 +14,7 @@ import AdminPage from 'pages/AdminPage';
 import SearchResultPage from 'pages/SearchResultPage';
 import SearchDetailPage from 'pages/SearchDetailPage';
 import ResultRankPage from 'pages/ResultRankPage';
+import InqueryPage from 'pages/InqueryPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/course" exact component={CourseIntroPage} />
           <Route path="/confirmemail" exact component={EmailConfirmPage} />
           <Route path="/payment" exact component={PaymentPage} />
+          <Route path="/inquery" exact component={InqueryPage} />
           <Route path="/register" exact component={RegisterPage} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/forgot" exact component={ForgotPage} />

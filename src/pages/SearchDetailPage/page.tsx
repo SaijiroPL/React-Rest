@@ -221,8 +221,7 @@ export default function() {
           </tr>
           <tr>
             <td>日付 • 時間</td>
-            <td colSpan={2}>2020年3月12日</td>
-            <td>12:02</td>
+            <td colSpan={3}>2020年3月12日&nbsp;12:02</td>
           </tr>
           <tr>
             <td>(時間帯)</td>
@@ -230,7 +229,7 @@ export default function() {
           </tr>
           <tr>
             <td>混み具合</td>
-            <td colSpan={3}></td>
+            <td colSpan={3}>80%</td>
           </tr>
           <tr>
             <td>客席担当者人数</td>
@@ -238,7 +237,7 @@ export default function() {
           </tr>
           <tr>
             <td>営業形態 • 業態</td>
-            <td colSpan={2}>フル·サービス • レジー</td>
+            <td colSpan={2}>フル·サービス • レジ</td>
             <td>専門料理</td>
           </tr>
           <tr>
@@ -374,7 +373,7 @@ export default function() {
           {mQuestion.map((item, idx) => 
           <>
             <div>{idx + 1}.{item.question}</div>
-            <div>{item.comment}</div>
+            <div style={{ paddingLeft: 10 }}>{item.comment}</div>
           </>
           )}
         </div>
@@ -382,7 +381,7 @@ export default function() {
         <div style={{ paddingLeft: 10 }}>
           {qQuestion.map((item, idx) => 
             <div key={idx}>
-              <span>料理{idx + 1}</span>
+              <span style={{ borderBottom: "1px black solid" }}>料理{idx + 1}</span>
               <span style={{ marginLeft: 30 }}>{item.title}</span>
               <span style={{ marginLeft: 30 }}>{item.price.toLocaleString()}円</span>
               <span style={{ marginLeft: 30 }}>(税込{Math.round(item.price * 1.1).toLocaleString()}円)</span>
@@ -463,11 +462,11 @@ export default function() {
         </div>
       </div>
       <div className={cn("mt-1", 'mb-1')} style={{ textAlign: 'left', width: '100%' }}>
-        <button className="btn-green" style={{ width: '120px' }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
-        <button className="btn-green" style={{ width: '120px', float: 'right' }} onClick={() => history.replace('/search/result')}>調査結果一覧</button>
+        <button className="btn-green" style={{ width: '125px' }} onClick={() => history.goBack()}>前の画面に戻る↩️</button>
+        <button className="btn-green" style={{ width: '125px', float: 'right' }} onClick={() => history.replace('/search/result')}>調査結果一覧</button>
       </div>
       <div className={cn("mt-1", 'mb-1')} style={{ textAlign: 'right', width: '100%' }}>
-        <button className="btn-green" style={{ width: '120px' }} onClick={() => history.replace('/login')}>ログアウト</button>
+        <button className="btn-green" style={{ width: '125px' }} onClick={() => history.replace('/login')}>ログアウト</button>
       </div>
     </div>
   )
