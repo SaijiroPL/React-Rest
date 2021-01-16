@@ -1,0 +1,131 @@
+export interface SurveyEntry {
+  id: number;
+  user_id: number;
+  survey_store: string;
+  date: string,
+  time: string,
+  cooking_type_1: string;
+  cooking_type_2: string;
+  cooking_type_3: string;
+  confirmed: number,
+  p: number;
+  s: number;
+  c: number;
+  m: number;
+  q: number;
+  psc: number;
+  mq: number;
+  total: number;
+  total_rank: number;
+}
+
+export interface SurveyDetail {
+  summary: {
+    id: number,
+    user_id: number,
+    survey_store: string,
+    building_title: string,
+    date: string,
+    time: string,
+    time_zone: string,
+    time_zone_index: number,
+    hall_staff_number: string,
+    hall_staff_number_index: number,
+    waiter_count: number,
+    waiter_count_disable: number,
+    address: string,
+    cooking_type_1: string,
+    cooking_type_1_index: number,
+    cooking_type_2: string,
+    cooking_type_2_index: number,
+    cooking_type_3: string,
+    cooking_type_3_index: number,
+    business_type: string,
+    business_type_index: number,
+    business_condition: string,
+    business_condition_index: number,
+    photo_1: string,
+    photo_2: string,
+    photo_3: string,
+    photo_4: string,
+    photo_5: string,
+    p: number,
+    s: number,
+    c: number,
+    m: number,
+    q: number,
+    total: number,
+    confirmed: number,
+    mq: number,
+    psc: number,
+    pscm: number,
+    total_rank: number,
+    total_count: number,
+    pscm_rank: number,
+    pscm_count: number,
+    psc_rank: number,
+    psc_count: number,
+    mq_rank: number,
+    mq_count: number,
+    q_1_count: number,
+    q_2_count: number,
+    q_3_count: number,
+    q_1_rank: number,
+    q_2_rank: number,
+    q_3_rank: number,
+    created_at: string,
+    updated_at: string,
+  },
+  menu_structure: PSCM[],
+  presentation: PSCM[],
+  service: PSCM[],
+  clinkiness: PSCM[],
+  cooking: {
+    id: number,
+    user_id: number,
+    survey_id: number,
+    category_id: number,
+    title: string,
+    price: number,
+    created_at: string,
+    updated_at: string,
+    cookings: {
+      id: number,
+      user_id: number,
+      survey_id: number,
+      survey_category_id: number,
+      cooking_id: number,
+      title: string,
+      price: number,
+      created_at: string,
+      updated_at: string,
+      surveys: {
+        id: number,
+        user_id: number,
+        survey_id: number,
+        survey_category_id: number,
+        survey_cooking_id: number,
+        question_id: number,
+        question: string,
+        survey_state: number,
+        comment: string,
+        created_at: string,
+        updated_at: string
+      }[]
+    }[]
+  }[]
+}
+
+export interface PSCM {
+  id: number,
+  user_id: number,
+  survey_id: number,
+  survey_type: number,
+  question_id: number,
+  question: string,
+  survey_state: number,
+  category: string,
+  comment: string,
+  created_at: string,
+  updated_at: string
+}

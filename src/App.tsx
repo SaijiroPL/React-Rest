@@ -31,7 +31,7 @@ function App() {
           <Route path="/forgot" exact component={ForgotPage} />
           <Route path="/admin" exact component={AdminPage} />
           <Route path="/search/result" exact component={SearchResultPage} />
-          <Route path="/search/detail" exact component={SearchDetailPage} />
+          <Route path="/search/detail/:id" exact component={SearchDetailPage} />
           <Route path="/search/rank" exact component={ResultRankPage} />
         </Switch>
       </div>

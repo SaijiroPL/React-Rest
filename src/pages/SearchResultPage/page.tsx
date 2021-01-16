@@ -2,30 +2,32 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import asset from 'const/asset';
 import cn from 'classnames';
+import { SurveyEntry } from 'types/data';
+import { getSurveyList } from 'api/survey';
 
-interface SearchRow {
-  date: string;
-  category: string;
-  name: string;
-  totalScore: number;
-  rank: number;
-  allRank: number;
-  mqScore: number;
-  pscScore: number;
-  confirmed: boolean;
+interface props {
+  surveyList: SurveyEntry[];
+  totalCount: number;
+  setSurveyEntries: (entries: SurveyEntry[]) => void;
+  setTotalCount: (count: number) => void;
 }
 
-export default function() {
+export default function({
+  surveyList,
+  totalCount,
+  setSurveyEntries,
+  setTotalCount,
+}: props) {
   const history = useHistory();
-  const [data, setData] = useState<SearchRow[]>([]);
   useEffect(() => {
-    setData([
-      { date: '2020/02/29 12:31', category: '寿司,天ぷら,うなぎ', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, mqScore: 2, pscScore: 3, confirmed: false },
-      { date: '2020/02/25 11:45', category: '寿司,天ぷら,うなぎ', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, mqScore: 2, pscScore: 3, confirmed: false },
-      { date: '2020/02/20 16:11', category: '寿司,天ぷら,うなぎ', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, mqScore: 2, pscScore: 3, confirmed: false },
-      { date: '2020/01/31 18:05', category: '寿司,天ぷら,うなぎ', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, mqScore: 2, pscScore: 3, confirmed: true },
-      { date: '2020/01/14 11:01', category: '寿司,天ぷら,うなぎ', name: 'テスティング食堂名', totalScore: 85, rank: 52, allRank: 6000, mqScore: 2, pscScore: 3, confirmed: true }
-    ]);
+    const loadEntries = async() => {
+      const data = await getSurveyList();
+      setSurveyEntries(data.surveys);
+      setTotalCount(data.total_count);
+    };
+    if (surveyList.length === 0) {
+      loadEntries();
+    }
   }, []);
   function onAdmin() {
     history.push(`/admin`);
@@ -54,29 +56,29 @@ export default function() {
           <div style={{ flex: 4 }}>店名</div>
         </div>
         <div className='search-table-border'>
-        {data.map((item, idx) => (
+        {surveyList.map((item, idx) => (
           <div className={cn('fs-13', 'search-item')} key={idx}>
             <div style={{ display: 'flex' }}>
               <div style={{ flex: 4, textAlign: 'left' }}>
-                <label><input type="checkbox"/>{item.date}</label>
+                <label><input type="checkbox"/>{item.date} {item.time}</label>
               </div>
               <div style={{ flex: 3 }}>
-                {item.category}
+                {[item.cooking_type_1, item.cooking_type_2, item.cooking_type_3].join(',')}
               </div>
               <div style={{ flex: 4 }}>
-                {item.name}
+                {item.survey_store}
               </div>
             </div>
             <div className='mt-1'>
-              <span>総合 {item.totalScore}点 順 {item.rank}/{item.allRank}</span>
-              <span className='ml-1'>MQ {item.mqScore}点</span>
-              <span className='ml-1'>PSC {item.pscScore}点</span>
+              <span>総合 {item.total}点 順 {item.total_rank}/{totalCount}</span>
+              <span className='ml-1'>MQ {item.mq}点</span>
+              <span className='ml-1'>PSC {item.psc}点</span>
               <span className={cn({'span-confirm': item.confirmed}, {'span-nonconfirm': !item.confirmed})} onClick={() => {
                 if (!item.confirmed) {
-                  alert('確定後の変更不可');
-                  const newData = [...data];
-                  newData[idx].confirmed = true;
-                  setData(newData);
+                  // alert('確定後の変更不可');
+                  // const newData = [...data];
+                  // newData[idx].confirmed = true;
+                  // setData(newData);
                 }
               }}>
                 {item.confirmed ? '確定済' : '未確定'}
